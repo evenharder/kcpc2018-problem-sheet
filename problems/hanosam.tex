@@ -1,0 +1,112 @@
+\begin{problem}{\kcpchanosamtitle}
+    {표준 입력}{표준 출력}
+    {\kcpchanosamtime\,초}{\kcpchanosammemory\,MB}{}{\kcpchanosamscore}
+    COSE214 알고리즘 강의를 수강하는 이세정 군은 최근 강의에서 `하노이의 탑’ 문제를 해결하는 방법에 대해 배웠다. 하노이의 탑의 규칙은 아래와 같다.
+    \begin{itemize}
+        \item 기둥은 3개이다.
+        \item $ N $개의 서로 다른 크기의 원판이 쌓여 있으며, 작은 원판 위에 큰 원판이 올라갈 수 없다.
+        \item 각 원판은 1번부터 $ N $번까지 번호가 있으며, 이 번호가 클수록 원판의 크기가 크다.
+        \item 한 번에 한 개의 원판만 옮길 수 있으며 한 번의 이동에는 1초가 소요된다.
+        \item 1번 기둥에서 3번 기둥으로 모든 원판들을 최소 횟수로 옮겨야 한다.
+        \item \textbf{(1)} 원판은 어느 기둥에서 어느 기둥으로든 자유롭게 옮길 수 있다.
+    \end{itemize}
+        
+    그런데 갑자기 옆에 앉아 있던 삼세정 군이 자신만의 규칙을 만들고 싶다며, \textbf{(1)} 대신 아래와 같은 조건을 적용하면 어떻게 될지 궁금해 했다.
+    
+    \begin{itemize}
+        \item \textbf{(2)} 원판을 인접한 기둥으로만 옮길 수 있다. (1번 $ \leftrightarrow $ 2번 $ \leftrightarrow $ 3번)
+    \end{itemize}
+    반대쪽에 있던 사세정 군은 다음과 같은 규칙을 제안했다.
+    
+    \begin{itemize}
+        \item \textbf{(3)} 원판을 다음 기둥으로만 옮길 수 있다. (1번 \textrightarrow\ 2번 \textrightarrow\ 3번 \textrightarrow\ 1번)
+    \end{itemize}    
+    
+    그들은 신난다며 이 문제를 `하노삼의 탑’으로 명명했다. 이세정 군은 솔직히 이런 추가 조건들이 끌리지 않았지만, 그래도 인싸가 되기 위해 $ K $초 후에 각 원판이 어디에 배치되어 있을지 구해보기로 했다. 그를 도와주자.
+    
+    \InputFile
+    첫째 줄에 세 정수 $ M,\ N,\ K $ 가 공백으로 구분되어 주어진다.
+    
+    $ M $은 하노삼의 탑에 대해 적용될 규칙의 번호를 나타낸다. $ 1 \leq M \leq 3 $ 이며, 1이라면 원래의 문제, 2라면 삼세정 군의 규칙, 3이라면 사세정 군의 규칙을 적용한다.
+    
+    $ N $과 $ K $는 $ M $의 값에 따라 범위가 달라진다. 상세한 범위는 다음과 같다.
+    
+    
+    \begin{itemize}
+        \item $ M = 1 $인 경우: $ 1 \leq N \leq 60,\ 0 \leq K < 2^N-1 $
+        \item $ M = 2 $인 경우: $ 1 \leq N \leq 40,\ 0 \leq K < 3^N-1 $
+        \item $ M = 3 $인 경우: $ 1 \leq N \leq 30,\ 0 \leq K < \frac{3+2\sqrt{3}}{6}(1+\sqrt{3})^N + \frac{3-2\sqrt{3}}{6}(1-\sqrt{3})^N $
+    \end{itemize}
+    
+    \OutputFile
+    첫 번째 줄에 $ N $개의 정수 $ a_1,\ a_2,\ \cdots,\ a_N $ 을 공백으로 구분하여 출력한다. $ a_i $는 $ i $번 원판이 $ K $초 후 위치한 기둥의 번호이다.
+    
+    \SubtaskWithScore{\kcpchanosamsmallscore}
+    $ K \leq 1,000 $이다.
+    
+    \SubtaskWithScore{\kcpchanosamlargescore}
+    문제 입력에서 주어진 조건 외에 추가적인 조건이 없다.
+
+    \Examples
+    
+    \begin{example}
+        \exmp{
+            1 3 6
+        }{%
+            1 3 3  
+        }%
+        \exmp{
+            1 4 1
+        }{%
+            2 1 1 1  
+        }%
+        \exmp{
+            2 3 6
+        }{%
+            1 3 1
+        }%
+        \exmp{
+            2 4 1
+        }{%
+            2 1 1 1
+        }%
+        \exmp{
+            3 3 6
+        }{%
+            2 3 1
+        }%
+        \exmp{
+            3 4 1
+        }{%
+            2 1 1 1
+        }%                
+    \end{example}
+    
+    \Explanation
+    첫 번째 예제의 모습은 다음과 같다.
+    \begin{center}
+        \ttfamily
+        | | |\\
+        | | 2\\
+        1 | 3\\
+        -----\\
+    \end{center}
+    세 번째 예제의 모습은 다음과 같다.
+    \begin{center}
+        \ttfamily
+        | | |\\
+        1 | |\\
+        3 | 2\\
+        -----\\
+    \end{center}
+    다섯 번째 예제의 모습은 다음과 같다.
+    \begin{center}
+        \ttfamily
+        | | |\\
+        | | |\\
+        3 1 2\\
+        -----\\
+    \end{center}
+    
+\end{problem}
+

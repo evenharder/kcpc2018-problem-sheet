@@ -1,0 +1,78 @@
+\documentclass[11pt,a4paper,oneside,korean]{article}
+
+\usepackage{kotex}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage{textcomp}
+\usepackage{color} % for colored text
+\usepackage{import} % for changing current dir
+\usepackage{daytime} % for displaying version number and date
+\usepackage{wrapfig} % for having text alongside pictures
+\usepackage{array} % compatibility check
+\usepackage{enumitem} % for item environment line spacing
+\usepackage{framed}
+\usepackage{pdfpages}
+\usepackage[subtask]{olymp3} % modified by @evenharder
+\usepackage{kcpc2018}
+
+\renewcommand{\baselinestretch}{1.15}
+\contest
+{고려대학교 프로그래밍 경시대회 - Advanced Division}%
+{Seoul}%
+{2018.12.08}%
+
+\binoppenalty=10000
+\relpenalty=10000
+\exhyphenpenalty=10000
+\def\NoInputFileName{}
+\def\NoOutputFileName{}
+\begin{document}
+    %\raggedbottom
+    %\displayauthorinfootertrue
+    %\intentionallyblankpagestrue
+
+    \begin{titlepage}
+        \setboolean{@twoside}{false}
+        \includepdf[pages=-, offset=70 -105]{./cover/KCPC-cover-advanced.pdf}
+    \end{titlepage}
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[height=0.2\textheight]{./problems/KCPC_logo.png}
+    \end{figure}
+    \kcpcintro
+    {
+    
+    \begin{table}[h]
+    \sffamily\Large
+    \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{cll}
+        A & \kcpcstickertitle & \kcpcstickerscore \\
+        B & \kcpcdicetitle & \kcpcdicefullscore \\
+        C & \kcpcclimbingtitle & \kcpcclimbingscore \\
+        D & \kcpchanosamtitle & \kcpchanosamfullscore \\
+        E & \kcpcxorpokertitle & \kcpcxorpokerscore \\
+        F & \kcpcpapercuttitle & \kcpcpapercutfullscore \\
+        G & \kcpcnavigationtitle & \kcpcnavigationfullscore \\
+        H & \kcpctourtitle & \kcpctourscore \\
+        \end{tabular}
+    \end{table}
+    }
+
+    \kcpcintroctd
+    
+    \newpage
+    
+    \import{"./problems/"}{sticker.tex}    
+    \import{"./problems/"}{dice.tex}
+    \import{"./problems/"}{climbing.tex}
+    \import{"./problems/"}{hanosam.tex}
+    \import{"./problems/"}{xorpoker.tex}
+    \import{"./problems/"}{papercut.tex}
+    \import{"./problems/"}{navigation.tex}
+    \import{"./problems/"}{tour.tex}
+    
+\end{document}
