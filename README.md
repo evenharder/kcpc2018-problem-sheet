@@ -14,3 +14,5 @@ LaTeX과 [olymp.sty](https://github.com/GassaFM/olymp.sty)를 기반으로 만�
 - [Advanced Div.](https://www.acmicpc.net/category/detail/1974)
 
 각 문제의 저자는 해당 문제 사이트 하단에 표기되어 있습니다.
+
+표지는 @subinium님이 제작해주셨습니다.
